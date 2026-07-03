@@ -24,7 +24,7 @@ const defaultSettings: DisplaySettings = {
   maxKikuchiIndex: 2,
   showKikuchiLines: true,
   showPolePoints: false,
-  showPoleLabels: false,
+  showPoleLabels: true,
   showSadLabels: true
 };
 

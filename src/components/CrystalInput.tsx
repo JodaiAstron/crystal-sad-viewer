@@ -6,6 +6,7 @@ export interface DisplaySettings {
   maxReflectionIndex: number;
   maxKikuchiIndex: number;
   showKikuchiLines: boolean;
+  showPolePoints: boolean;
   showPoleLabels: boolean;
   showSadLabels: boolean;
 }
@@ -151,6 +152,14 @@ export default function CrystalInput({
             onChange={(event) => onSettingsChange({ ...settings, showKikuchiLines: event.target.checked })}
           />
           <span>Kikuchi lines</span>
+        </label>
+        <label className="check-label">
+          <input
+            type="checkbox"
+            checked={settings.showPolePoints}
+            onChange={(event) => onSettingsChange({ ...settings, showPolePoints: event.target.checked })}
+          />
+          <span>Pole points</span>
         </label>
         <label className="check-label">
           <input

@@ -5,6 +5,7 @@ interface StereonetSvgProps {
   poles: PolePoint[];
   kikuchiLines: KikuchiLine[];
   showKikuchiLines: boolean;
+  showPolePoints: boolean;
   showPoleLabels: boolean;
 }
 
@@ -15,6 +16,7 @@ export default function StereonetSvg({
   poles,
   kikuchiLines,
   showKikuchiLines,
+  showPolePoints,
   showPoleLabels
 }: StereonetSvgProps) {
   return (
@@ -36,20 +38,21 @@ export default function StereonetSvg({
           ))
         )}
 
-      {poles.map((pole) => {
-        const x = toSvgX(pole.x);
-        const y = toSvgY(pole.y);
-        return (
-          <g key={`${pole.hkl.h},${pole.hkl.k},${pole.hkl.l}`}>
-            <circle cx={x} cy={y} r="2.4" className="pole-point" />
-            {showPoleLabels && pole.showLabel && (
-              <text x={x + 3.6} y={y - 3.6} className="spot-label">
-                {pole.label}
-              </text>
-            )}
-          </g>
-        );
-      })}
+      {showPolePoints &&
+        poles.map((pole) => {
+          const x = toSvgX(pole.x);
+          const y = toSvgY(pole.y);
+          return (
+            <g key={`${pole.hkl.h},${pole.hkl.k},${pole.hkl.l}`}>
+              <circle cx={x} cy={y} r="2.4" className="pole-point" />
+              {showPoleLabels && pole.showLabel && (
+                <text x={x + 3.6} y={y - 3.6} className="spot-label">
+                  {pole.label}
+                </text>
+              )}
+            </g>
+          );
+        })}
     </svg>
   );
 }

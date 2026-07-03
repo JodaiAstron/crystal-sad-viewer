@@ -263,6 +263,91 @@ figcaption {
   stroke-linejoin: round;
 }
 
+.spot-metrics {
+  display: grid;
+  gap: 10px;
+  padding: 0 16px 16px;
+}
+
+.metrics-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: baseline;
+  border-top: 1px solid #e5ebe6;
+  padding-top: 14px;
+}
+
+h3 {
+  margin: 0;
+  color: #26352f;
+  font-size: 0.98rem;
+  letter-spacing: 0;
+}
+
+.metrics-title-row span,
+.empty-note {
+  color: #63766e;
+  font-size: 0.85rem;
+  font-weight: 650;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: minmax(360px, 1fr) minmax(240px, 0.7fr);
+  gap: 12px;
+  align-items: start;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border: 1px solid #dce3de;
+  border-radius: 8px;
+  font-size: 0.84rem;
+}
+
+th,
+td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #e8eee9;
+  text-align: right;
+  white-space: nowrap;
+}
+
+th:first-child,
+td:first-child {
+  text-align: left;
+}
+
+th {
+  background: #f3f7f4;
+  color: #4c5f57;
+  font-weight: 800;
+}
+
+tr:last-child td {
+  border-bottom: 0;
+}
+
+.angle-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.angle-list span {
+  border: 1px solid #dce3de;
+  border-radius: 6px;
+  background: #fbfcfa;
+  color: #40544c;
+  font-size: 0.8rem;
+  font-weight: 650;
+  padding: 6px 8px;
+}
+
 .error-message {
   margin-top: 18px;
   border: 1px solid #e1b3b0;
@@ -283,6 +368,10 @@ figcaption {
   }
 
   .plot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics-grid {
     grid-template-columns: 1fr;
   }
 

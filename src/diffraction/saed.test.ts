@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { buildLattice } from "../crystal/lattice";
-import { computeSaedPattern, generateReflections } from "./saed";
+import { computeRepresentativeSpotMetrics, computeSaedPattern, generateReflections } from "./saed";
 
 const cubic = buildLattice({
   system: "cubic",
@@ -53,5 +53,13 @@ describe("SAD reflection filtering", () => {
   it("applies body-centered extinction", () => {
     const pattern = computeSaedPattern(cubic, { u: 0, v: 0, w: 1 }, "I", 2);
     expect(pattern.spots.every((spot) => (spot.hkl.h + spot.hkl.k + spot.hkl.l) % 2 === 0)).toBe(true);
+  });
+
+  it("summarizes representative Friedel-collapsed distances and angles", () => {
+    const pattern = computeSaedPattern(cubic, { u: 0, v: 0, w: 1 }, "P", 2);
+    const metrics = computeRepresentativeSpotMetrics(pattern, 4);
+    expect(metrics.reference?.distanceRatio).toBeCloseTo(1);
+    expect(metrics.spots.some((spot) => spot.distanceRatio > 1.4 && spot.distanceRatio < 1.42)).toBe(true);
+    expect(metrics.pairAngles.some((pair) => Math.abs(pair.angleDegrees - 90) < 1e-8)).toBe(true);
   });
 });

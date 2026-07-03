@@ -23,7 +23,8 @@ const defaultSettings: DisplaySettings = {
   maxReflectionIndex: 4,
   maxKikuchiIndex: 2,
   showKikuchiLines: true,
-  showPoleLabels: true,
+  showPolePoints: false,
+  showPoleLabels: false,
   showSadLabels: true
 };
 

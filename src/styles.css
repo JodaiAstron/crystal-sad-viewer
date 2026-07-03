@@ -149,6 +149,38 @@ button:hover {
   margin-top: 22px;
 }
 
+.custom-axis-section {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.custom-axis-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: end;
+  padding: 16px;
+  border: 1px solid #d7ded8;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 14px 32px rgba(29, 41, 36, 0.07);
+}
+
+.custom-axis-header p {
+  margin: 6px 0 0;
+  color: #63766e;
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.custom-axis-inputs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(72px, 92px));
+  gap: 10px;
+}
+
 .orientation-card {
   overflow: hidden;
   border: 1px solid #d7ded8;
@@ -365,6 +397,15 @@ tr:last-child td {
 
   .orientation-header {
     display: grid;
+  }
+
+  .custom-axis-header {
+    display: grid;
+    align-items: stretch;
+  }
+
+  .custom-axis-inputs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .plot-grid {
